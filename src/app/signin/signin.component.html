@@ -1,0 +1,32 @@
+<mat-card style="text-align: center;">
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <form #signInForm='ngForm' (ngSubmit)="submit(theusername.value, thePassword.value)">
+        <p>
+          <mat-form-field>
+            <input #theusername ngModel name = 'theusername' required type="email" matInput placeholder="Email">
+  
+          </mat-form-field>
+        </p>
+  
+        <p>
+          <mat-form-field>
+            <input #thePassword ngModel name="thePassword" required type="password" matInput placeholder="Password">
+          </mat-form-field>
+        </p>
+  
+        <p *ngIf="LoginError" style="color: pink" class="red-text center error-message">
+          Invalid Signin, Try Again
+        </p>
+  
+        <button (click)="Login()">Login</button>
+        <!-- <div class="button">
+          <button type="submit" class="btn btn-primary btn-block" mat-button>Login</button>
+        </div>
+   -->
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+
+ 

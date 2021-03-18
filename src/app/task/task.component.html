@@ -1,0 +1,127 @@
+<div class="container">  
+  
+    <mat-card>  
+      <mat-toolbar color="accent">  
+        <div align="center" style="color:white;text-align: right;">  
+         Task Details 
+        </div>    
+      </mat-toolbar>  
+    <br><br>  
+      <mat-card-content>  
+        <form [formGroup]="taskForm" (ngSubmit)="onFormSubmit()">  
+            <!-- taskForm.value -->
+                <table>  
+                  <tr>  
+                    <td class="tbl1">  
+                      <mat-form-field class="demo-full-width">  
+                        <input formControlName="QuoteType" matTooltip="Enter Quote Type" matInput placeholder="Quote Type">  
+                      </mat-form-field>  
+                      <mat-error>  
+                        <span *ngIf="!taskForm.get('QuoteType').value && taskForm.get('QuoteType').touched"></span>  
+                      </mat-error>  
+                    </td>  
+                    <td class="tbl1">  
+                      <mat-form-field class="demo-full-width">  
+                        <input matInput [matDatepicker]="picker"matTooltip="Enter Due Date" formControlName="DueDate"placeholder="Choose Due Date">  
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
+                        <mat-datepicker #picker></mat-datepicker>  
+                      </mat-form-field>  
+                      <mat-error>  
+                        <span *ngIf="!taskForm.get('DueDate').value && taskForm.get('DueDate').touched"></span>  
+                      </mat-error>  
+                    </td>  
+                    <td class="tbl1">  
+                      <mat-form-field class="demo-full-width">  
+                        <input formControlName="QuoteNumber" matTooltip="Enter Quote Number" matInput placeholder="QuoteNumber">  
+                      </mat-form-field>  
+                      <mat-error>  
+                        <span *ngIf="!taskForm.get('QuoteNumber').value && taskForm.get('QuoteNumber').touched"></span>  
+                      </mat-error>  
+                    </td>  
+                  </tr>  
+                  <tr>  
+                <!--    <td class="tbl1">  
+                     <span>Gender</span>  
+                      <br><br>  
+                      <mat-radio-group matTooltip="Enter Gender"formControlName="Gender">  
+                          <mat-radio-button value="0">Male</mat-radio-button>    
+                   <mat-radio-button value="1">Female</mat-radio-button>  
+                        </mat-radio-group>  
+                      <mat-error>  
+                        <span *ngIf="!employeeForm.get('Gender').value && employeeForm.get('Gender').touched"></span>  
+                      </mat-error>  
+                   </td>       -->
+                    <td class="tbl1">  
+                      <mat-form-field class="demo-full-width">  
+                        <input matTooltip="Enter Contact"formControlName="Contact" matInput placeholder="Contact">  
+                      </mat-form-field>  
+                      <mat-error>  
+                        <span *ngIf="!taskForm.get('Contact').value && taskForm.get('Contact').touched"></span>  
+                      </mat-error>  
+                    </td>  
+                    <td class="tbl1">  
+                      <mat-form-field class="demo-full-width">  
+                        <input formControlName="TaskContent" matTooltip="Enter Task Content" matInput placeholder="TaskContent">  
+                      </mat-form-field>  
+                      <mat-error>  
+                        <span *ngIf="!taskForm.get('TaskContent').value && taskForm.get('TaskContent').touched"></span>  
+                      </mat-error>  
+                    </td>  
+                  </tr>  
+
+
+                  <tr>  
+                    <td></td>  
+                    <td  class="content-center">  
+                      <button type="submit" mat-raised-button color="accent"matTooltip="Click Submit Button"[disabled]="!taskForm.valid">Submit</button>   
+                      &nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button type="reset" mat-raised-button color="accent"matTooltip="Click Reset Button" (click)="resetForm()">Reset</button>  
+                    </td>  
+                    <td>  
+                      <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">  
+                        {{massage}}  
+                      </p>  
+                    </td>  
+                  </tr>  
+                </table>  
+    <br><br>  
+          <table class="table" >  
+              <tr ngclass="btn-primary">  
+                <th class="tbl2">Quote Type</th>  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <th class="tbl2">Quote Number</th>  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <th class="tbl2">Contact</th>  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <th class="tbl2">TaskContent</th>  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <th class="tbl2">DueDate</th>  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <th class="tbl2">TaskType</th>  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <th class="tb12">View</th>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <th class="tbl2">Edit</th>  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <th class="tbl2">Delete</th>  
+              </tr>  
+              <tr *ngFor="let task of allTasks | async">  
+                <td class="tbl2">{{task.QuoteType}}</td>  
+                <td class="tbl2">{{task.QuoteNumber}}</td>  
+                <td class="tbl2">{{task.Contact}}</td>  
+                <td class="tbl2">{{task.TaskContent}}</td>  
+                <td class="tbl2">{{task.DueDate | date}}</td>  
+                <td class="tbl2">{{task.TaskType}}</td>  
+                <td class="tbl2">  
+                  <button type="button" class="btn btn-info"matTooltip="Click Edit Button"(click)="loadTaskToEdit(task.TaskId)">Edit</button>  
+                </td>  
+                <td class="tbl2">  
+                  <button type="button" class="btn btn-danger"matTooltip="Click Delete Button"(click)="deleteTask(task.TaskId)">Delete</button>  
+                </td>  
+              </tr>  
+      
+            </table>  
+        </form>  
+      </mat-card-content>  
+    </mat-card>  
+    </div>  
