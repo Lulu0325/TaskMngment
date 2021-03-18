@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task } from './task';
 
 
 @Component({
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TaskMngment';
+
+  //added
 
 }

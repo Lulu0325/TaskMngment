@@ -11,7 +11,7 @@ import { Task } from './task';
 
 export class TaskService {
 
-  url = 'http://localhost:44304/Api/Task';  
+   url = 'http://localhost:44304/Api/Task';  
   constructor(private http: HttpClient) { }  
   getAllTask(): Observable<Task[]> {  
     return this.http.get<Task[]>(this.url + '/AllTasks/');  
@@ -33,6 +33,7 @@ export class TaskService {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
     return this.http.delete<number>(this.url + '/DeleteTasks?id=' + taskid,  
  httpOptions);  
-  }  
+  }   
+
 }  
 

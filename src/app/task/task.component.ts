@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { TaskService } from '../task.service';  
 import { Task } from '../task';  
   
+import { Router } from '@angular/router';
+
 @Component({  
   selector: 'app-task',  
   templateUrl: './task.component.html',  
@@ -14,9 +16,12 @@ export class TaskComponent implements OnInit {
   taskForm: any;  
   allTasks: Observable<Task[]>;  
   taskIdUpdate = null;  
-  massage = null;  
+  massage = null;    
+
+  //newly added
+ 
   
-  constructor(private formbulider: FormBuilder, private taskService:TaskService) { }  
+  constructor(private router: Router, private formbulider: FormBuilder, private taskService:TaskService) { }  
   
   ngOnInit() {  
     this.taskForm = this.formbulider.group({  
@@ -29,6 +34,9 @@ export class TaskComponent implements OnInit {
     this.loadAllTasks();  
   }  
 
+  
+ 
+  
   loadAllTasks() {  
    /* this.taskService.getAllTask().subscribe(
       (data: any) => {
@@ -105,4 +113,9 @@ export class TaskComponent implements OnInit {
     this.massage = null;  
     this.dataSaved = false;  
   }  
+
+  navigate(){
+   this.router.navigate(["/taskdetails"]);
+  }
+
 }  

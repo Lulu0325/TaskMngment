@@ -1,0 +1,93 @@
+<div class="navbar">
+
+<h1> &#9783; Task List</h1>
+
+</div>
+
+
+<div class="fancy">
+
+  <!--  <div>
+        <label for="name">Quote Type: </label>
+        <input id="name" [(ngModel)]="tasklist.TheQuoteType" placeholder="name">
+      </div>
+
+
+    -->
+<br>
+
+<div class="searchbox">
+ <label for="entries">Show</label>
+<select name="entries" id="entries">
+    <option value="3">3</option>
+    <option value="5">5</option>
+    <option value="7">10</option>
+</select>
+    entries
+
+    <label class="lbl" for="order">Order By:</label>
+<select name="order" id="order">
+    <option value="ContactName">Contact Name</option>
+    <option value="DueDate">Due Date</option>
+    <option value="QuoteNumber">QuoteNumber</option>
+    <option value="QuoteType">QuoteType</option>
+</select>Entries
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="search" placeholder="Search..">
+</div>
+
+
+<br>
+
+
+    <table class="table" >  
+        <tr ngclass="btn-primary">  
+          <th class="tbl2">Quote Type</th>  
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th class="tbl2">Quote Number</th>  
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th class="tbl2">Contact</th>  
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th class="tbl2">TaskContent</th>  
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th class="tbl2">DueDate</th>  
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th class="tbl2">TaskType</th>  
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <!--   <th class="tb12">View</th>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th class="tbl2">Edit</th>  
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th class="tbl2">Delete</th>   -->
+        </tr>  
+
+    </table>
+
+    <table>
+
+<tr *ngFor="let tasklist of tasklists" (click)="onSelect(tasklist)">
+ 
+<td>{{tasklist.id}}</td>
+<td>{{tasklist.TheQuoteType}}</td>
+<td>{{tasklist.TheQuoteNumber}}</td>
+<td>{{tasklist.TheContact}}</td>
+<td>{{tasklist.TheTaskContent}}</td>
+<td>{{tasklist.TheDueDate}}</td>
+<td>{{tasklist.TheTaskType}}</td>
+
+
+<button>&#9863;</button> &nbsp;
+<button>&#9998;</button> &nbsp;
+<button class="delete" title="delete tasklist"
+  (click)="delete(tasklist)">&#9747;</button>
+
+
+</tr>
+
+</table>
+<br><br>
+
+</div>
+<hr>
+<p style="color: rgb(22, 22, 61);">Showing 10/10 entries</p>
+

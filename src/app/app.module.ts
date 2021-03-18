@@ -29,12 +29,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';  
 import { TaskComponent } from './task/task.component';
 import { SigninComponent } from './signin/signin.component';
+import { TaskdetailsComponent } from './taskdetails/taskdetails.component';
  
   
 @NgModule({  
   declarations: [  
     AppComponent,  
-    TaskComponent,  SigninComponent  
+    TaskComponent,  SigninComponent, TaskdetailsComponent  
   ],  
   imports: [  
     BrowserModule,  

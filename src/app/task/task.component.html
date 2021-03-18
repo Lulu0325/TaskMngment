@@ -1,10 +1,13 @@
-<div class="container">  
-  
+<div class="container" >  
+   
     <mat-card>  
       <mat-toolbar color="accent">  
-        <div align="center" style="color:white;text-align: right;">  
-         Task Details 
+        <div style="color:white;text-align: right; ">  
+        <h1> Create a New Task </h1>
         </div>    
+
+       
+
       </mat-toolbar>  
     <br><br>  
       <mat-card-content>  
@@ -73,9 +76,9 @@
                   <tr>  
                     <td></td>  
                     <td  class="content-center">  
-                      <button type="submit" mat-raised-button color="accent"matTooltip="Click Submit Button"[disabled]="!taskForm.valid">Submit</button>   
+                      <button type="submit" mat-raised-button color="accent"matTooltip="Click Submit Button"[disabled]="!taskForm.valid">&#x2714;Update</button>   
                       &nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <button type="reset" mat-raised-button color="accent"matTooltip="Click Reset Button" (click)="resetForm()">Reset</button>  
+                      <button type="reset" mat-raised-button color="accent"matTooltip="Click Reset Button" (click)="resetForm()">&#x232B;Reset</button>  
                     </td>  
                     <td>  
                       <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">  
@@ -84,8 +87,10 @@
                     </td>  
                   </tr>  
                 </table>  
+                <div style="float: right;"> <button (click)="navigate()">View Detailed Lists</button></div> 
     <br><br>  
-          <table class="table" >  
+  
+     <!--     <table class="table" >  
               <tr ngclass="btn-primary">  
                 <th class="tbl2">Quote Type</th>  
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -121,7 +126,16 @@
               </tr>  
       
             </table>  
+
+          -->
+         
+
         </form>  
+
+        
       </mat-card-content>  
     </mat-card>  
+ 
+    
+ 
     </div>  

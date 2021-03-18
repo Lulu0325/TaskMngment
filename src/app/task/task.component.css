@@ -1,2 +1,16 @@
 .block-left { float: left; }
 .block-right { float: right; }
+
+table {
+    border-collapse: collapse;
+        margin-top:20px;
+          margin-left: auto;
+          margin-right: auto;
+        
+}
+
+td {
+    padding-top: .9em;
+    padding-bottom: .9em;
+    padding: 3em;
+}
